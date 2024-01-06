@@ -21,6 +21,32 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## About project
+Minimal project to check how works Laravel Octane & Sail & FrankenPHP & Mercure
+
+## Installation 
+1. Clone this repo
+2. `cd lsofphp-api` && `composer install`
+3. `docker use context default` because this repo is using Laravel Sail
+4. `./vendor/bin/sail up`
+5. Check the web.php and `MercureController.php` to check how sockets is sent
+6. `cp .env.example .env` and set JWT at the bottom of the file. Working example: [JWT.io](https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InB1Ymxpc2giOlsiKiJdfX0.a8cjcSRUAcHdnGNMKifA4BK5epRXxQI0UBp2XpNrBdw)
+
+## Example javascript
+1. Just create a Javascript file:
+```js
+<script>
+    // The subscriber subscribes to updates for the topic
+    const url = new URL('http://localhost:9000/.well-known/mercure');
+    url.searchParams.append('topic', 'public-topic-1');
+    url.searchParams.append('topic', 'public-topic-2');
+    
+    const es = new EventSource(url);
+    es.onmessage = (msg) => { console.log(msg); }
+</script>
+
+```
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

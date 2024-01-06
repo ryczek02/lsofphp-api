@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MercureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::get('/', function (){
         'OCTANE' => isset($_SERVER['OCTANE_SERVER']),
     ];
 });
+
+Route::get('/send', [MercureController::class, 'pushEvent']);
 
 
 Route::get('/request', function(){

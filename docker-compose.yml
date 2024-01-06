@@ -28,6 +28,7 @@ services:
             - meilisearch
             - mailpit
             - selenium
+
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -99,6 +100,20 @@ services:
             - 'host.docker.internal:host-gateway'
         volumes:
             - '/dev/shm:/dev/shm'
+        networks:
+            - sail
+    mercure:
+        restart: unless-stopped
+        image: dunglas/mercure
+        environment:
+            SERVER_NAME: :80
+            MERCURE_EXTRA_DIRECTIVES: |
+                anonymous 0
+                cors_origins *
+            MERCURE_SUBSCRIBER_JWT_KEY: '!ChangeThisMercureHubJWTSecretKey!'
+            MERCURE_PUBLISHER_JWT_KEY: '!ChangeThisMercureHubJWTSecretKey!'
+        ports:
+            - 9000:80
         networks:
             - sail
 networks:
