@@ -3,6 +3,8 @@
 	order php_server before file_server
 }
 
+# The domain name of your server
+localhost {
    mercure {
         publisher_jwt !ChangeThisMercureHubJWTSecretKey!
         subscriber_jwt !ChangeThisMercureHubJWTSecretKey!
@@ -12,10 +14,6 @@
         anonymous
         subscriptions
     }
-
-# The domain name of your server
-localhost {
-
 
 	# Set the webroot to the public/ dir
 	root * public/
