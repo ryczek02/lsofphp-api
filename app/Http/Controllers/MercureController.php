@@ -10,15 +10,13 @@ class MercureController extends Controller
 {
     public function pushEvent(Publisher $publisher)
     {
-        $msg = 'test message from laravel controller';
         $topics = [
             'public-topic-1',
         ];
-        $publisher(new Update($topics, $msg));
 
-        return response()->json([
-            'error' => false,
-            'message' => $msg,
-        ]);
+        for ($i=0; $i<=10; $i++){
+            $publisher(new Update($topics, 'index: ' . strval($i) ));
+            sleep(2);
+        }
     }
 }
