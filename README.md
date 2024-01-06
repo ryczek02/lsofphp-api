@@ -31,7 +31,7 @@ Minimal project to check how works Laravel Octane & Sail & FrankenPHP & Mercure
 4. `./vendor/bin/sail up`
 5. Check the web.php and `MercureController.php` to check how sockets is sent
 6. `cp .env.example .env` and set JWT at the bottom of the file. Working example: [JWT.io](https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InB1Ymxpc2giOlsiKiJdfX0.a8cjcSRUAcHdnGNMKifA4BK5epRXxQI0UBp2XpNrBdw)
-
+7. Check [`localhost/pingpong`](http://localhost/pingpong)
 ## Example javascript
 1. Just create a Javascript file:
 ```js

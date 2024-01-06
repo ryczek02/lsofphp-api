@@ -13,16 +13,12 @@ use App\Http\Controllers\MercureController;
 |
 */
 
-Route::get('/', function (){
-    return [
-        'PHP_VERSION' => phpversion(),
-        'SERVER' => 'http://' . $_SERVER['HTTP_HOST'] . '/server',
-        'REQUEST' => 'http://' . $_SERVER['HTTP_HOST'] . '/request',
-        'OCTANE' => isset($_SERVER['OCTANE_SERVER']),
-    ];
+Route::get('/pingpong', function (){
+    return view('welcome');
 });
 
 Route::get('/send', [MercureController::class, 'pushEvent']);
+Route::get('/send_specified', [MercureController::class, 'pushEventSpecified']);
 
 
 Route::get('/request', function(){
