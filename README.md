@@ -35,16 +35,15 @@ Minimal project to check how works Laravel Octane & Sail & FrankenPHP & Mercure
 ## Example javascript
 1. Just create a Javascript file:
 ```js
-<script>
-    // The subscriber subscribes to updates for the topic
-    const url = new URL('http://localhost:9000/.well-known/mercure');
-    url.searchParams.append('topic', 'public-topic-1');
-    url.searchParams.append('topic', 'public-topic-2');
-    
-    const es = new EventSource(url);
-    es.onmessage = (msg) => { console.log(msg); }
-</script>
+// The subscriber subscribes to updates for the topic
+const url = new URL('http://localhost:9000/.well-known/mercure');
+url.searchParams.append('topic', 'public-topic-1');
+url.searchParams.append('topic', 'public-topic-2');
 
+const es = new EventSource(url);
+es.onmessage = (msg) => {
+    console.log(msg);
+}
 ```
 
 ## Learning Laravel
